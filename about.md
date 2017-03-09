@@ -4,6 +4,13 @@ title: About
 permalink: /about/
 ---
 
-I am freelance developer. Currently doing more in backend, focused in Python and Django.
+In short:
+.NET developer, fan of automation and backend world.
 
-email: agus[at]python.web.id
+In detail:
+Web developer since 2010. Open for modern technologies, but focused on .NET stack.
+Relies on automating things for development speedup and bug factory reduce (Automated Testing, Continous Integration and Deployment).
+
+Not afraid of command line nor Linux distros.
+
+Resharper addict. Docker fan. Virtual machines regular user.

@@ -110,7 +110,7 @@ layout: compress
     <div class="container">
       <div class="col-sm-3">
         <div class="fixed-condition">
-          <a href="/"><img class="profile-avatar" src="/static/img/avatar.jpg" height="75px" width="75px" /></a>
+          <a href="/"><img class="profile-avatar" src="https://pbs.twimg.com/profile_images/785068051901341696/xvGNzdy8_400x400.jpg" height="75px" width="75px" /></a>
           <h1 class="author-name">{{ site.author }}</h1>
           {% if site.about %}
             <div class="profile-about">
@@ -141,15 +141,12 @@ layout: compress
       </div>
       <div class="col-sm-8 col-offset-1 main-layout">
         {{ content }}
-        <footer>
-          &copy; {{ site.author }}
-          {% if site.github %}
-            - <a href="{{ site.github }}">{{ site.github }}</a> - Powered by Jekyll.
-          {% endif %}
-          <div class="btn-github" style="float:right;">
-            <iframe src="https://ghbtns.com/github-btn.html?user=agusmakmun&repo=agusmakmun.github.io&type=star&count=true" frameborder="0" scrolling="0" width="85" height="20px"></iframe>
-            <iframe src="https://ghbtns.com/github-btn.html?user=agusmakmun&repo=agusmakmun.github.io&type=fork&count=true" frameborder="0" scrolling="0" width="85" height="20px"></iframe>
-          </div>
+        <footer>          
+          &copy; {{ site.author }} - <a href="{{ site.github }}">{{ site.github }}</a>
+          <br />
+          Theme based on <a href="https://github.com/agusmakmun/agusmakmun.github.io/" target="_blank">My Stack Problems</a> by <a href="https://github.com/agusmakmun/" target="_blank">agusmakmun</a>.
+          <br />
+          Powered by Jekyll.
         </footer>
       </div>
       <!-- end /.col-sm-8 -->

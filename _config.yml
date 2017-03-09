@@ -1,10 +1,10 @@
-title: Stack Problems
-description: My Personal Stack Problems
-author: Agus Makmun
-github: https://github.com/agusmakmun
-about: I am freelance developer. Currently doing more in backend, focused in Python and Django.
-disqus_shortname: stackproblems
-google_analytics: UA-XXXXXXXX-Y
+title: IzzyDev`o
+description: Beacuse we all born as newbies to in this world.
+author: Paweł Iżycki
+github: https://github.com/pizycki
+about: .NET developer, fan of automation and backend world.
+disqus_shortname: izzydev
+google_analytics: UA-93347392-1
 
 enableTags: true
 tagarray: []
@@ -16,29 +16,29 @@ collections:
 
 social:
     - icon: fa-facebook
-      link: "#"
+      link: "https://www.facebook.com/pizycki"
     - icon: fa-twitter
-      link: "https://twitter.com/agusmakmun6"
+      link: "https://twitter.com/pizycki"
     - icon: fa-linkedin
-      link: "https://www.linkedin.com/in/summonagus"
+      link: "https://www.linkedin.com/in/paweł-iżycki-5771a497"
     - icon: fa-stack-exchange
-      link: "#"
+      link: "https://stackoverflow.com/users/story/864968"
     - icon: fa-github
-      link: "https://github.com/agusmakmun"
+      link: "https://github.com/pizycki"
 
 share:
-  twitter_username: agusmakmun6
-  fb_appid: 1749788565247320
+  twitter_username: pizycki
+  fb_appid: 1477315288968936
 
 urls:
     - text: About Me
       url: /about/
-    - text: My Projects
+    - text: Projects
       url: /projects/
     - text: XML Feed
       url: /feed.xml
 
-url: "https://agusmakmun.github.io"
+url: "http://izzydev.net"
 baseurl: ""
 paginate: 20
 per_page: 20
