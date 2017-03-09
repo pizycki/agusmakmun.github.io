@@ -1,8 +1,8 @@
 ---
 layout: post
 title:  "Porting to Oracle with Entity Framework"
-date:   2016-02-01 00:18:23 +0100
-categories: [.NET]
+date:   2017-02-01
+categories: [.NET, Oracle, EntityFramework]
 ---
 
 ## TL;DR: 
