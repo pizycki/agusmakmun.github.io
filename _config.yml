@@ -31,12 +31,12 @@ share:
   fb_appid: 1477315288968936
 
 urls:
-    - text: About Me
+    - text: About me
       url: /about/
     - text: Projects
       url: /projects/
-    - text: XML Feed
-      url: /feed.xml
+    # - text: XML Feed
+      # url: /feed.xml
 
 url: "http://izzydev.net"
 baseurl: ""
