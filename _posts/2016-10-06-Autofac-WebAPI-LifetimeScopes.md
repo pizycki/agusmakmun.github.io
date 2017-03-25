@@ -19,7 +19,7 @@ and
 > Use **InstancePerApiRequest/InstancePerHttpRequest** if your dependency should only be resolvable from the **context of an HTTP/API request**. Your dependency will be disposed of at the conclusion of that request.
 
 Under the hood, `InstancePerRequest` is just a simple `InstancePerMatchingLifetimeScope` with specific tag.
-You can check this by yourself [on GitHub, in Autofac source code](https://github.com/autofac/Autofac/blob/41044d7d1a4fa277c628021537d5a12016137c3b/src/Autofac/RegistrationExtensions.cs).
+You can check this by yourself [on GitHub, in Autofac source code](https://github.com/autofac/Autofac/blob/41044d7d1a4fa277c628021537d5a12016137c3b/src/Autofac/RegistrationExtensions.cs#L1401).
 
 Convention test that checks all registration instances in Autofac container to be not registered as `InstancePerRequest` is shown below.
 

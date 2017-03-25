@@ -309,7 +309,7 @@ Sometime you might get following error
 Could not load type 'OracleInternal.Common.ConfigBaseClass' from assembly 'Oracle.ManagedDataAccess, Version=4.121.2.0, Culture=neutral, PublicKeyToken=89b483f429c47342'.
 ```
 
-This is not clear to me. Sometime I have to uninstall it, sometime I have to install it (due the error says suggest something opposite).
+This is not clear to me. Sometime I have to uninstall it, sometime I have to install it (due the error suggests something opposite).
 
 I presume you have `gacutil` in your `PATH`. To check out, simply type `gacutil /?` to see available parameters. If you don't, [google for gacutil location](https://www.google.pl/search?q=gacutil+location) and [add it to your system variable PATH](https://www.google.pl/search?q=add+path+windows), or use `gacutil` with absolute path. Remember to open command window in Administrator mode.
 
@@ -517,6 +517,55 @@ More here:
 [Changing the Namespace With Entity Framework 6.0 Code First Databases](http://jameschambers.com/2014/02/changing-the-namespace-with-entity-framework-6-0-code-first-databases/),
 
 [Namespace changes with Entity Framework 6 migrations](https://rimdev.io/namespace-changes-with-ef-migrations/)
+
+
+
+## Drop all tables in schema
+
+```sql
+BEGIN
+   FOR cur_rec IN (SELECT object_name, object_type
+                     FROM user_objects
+                    WHERE object_type IN
+                             ('TABLE',
+                              'VIEW',
+                              'PACKAGE',
+                              'PROCEDURE',
+                              'FUNCTION',
+                              'SEQUENCE'
+                             ))
+   LOOP
+      BEGIN
+         IF cur_rec.object_type = 'TABLE'
+         THEN
+            EXECUTE IMMEDIATE    'DROP '
+                              || cur_rec.object_type
+                              || ' "'
+                              || cur_rec.object_name
+                              || '" CASCADE CONSTRAINTS';
+         ELSE
+            EXECUTE IMMEDIATE    'DROP '
+                              || cur_rec.object_type
+                              || ' "'
+                              || cur_rec.object_name
+                              || '"';
+         END IF;
+      EXCEPTION
+         WHEN OTHERS
+         THEN
+            DBMS_OUTPUT.put_line (   'FAILED: DROP '
+                                  || cur_rec.object_type
+                                  || ' "'
+                                  || cur_rec.object_name
+                                  || '"'
+                                 );
+      END;
+   END LOOP;
+END;
+/
+```
+
+source: http://stackoverflow.com/a/1690419/864968
 
 
 
