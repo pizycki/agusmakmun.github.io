@@ -126,7 +126,7 @@ Well, I'm no exception here. I choose software to my needs with **extreme** caut
 
 
 
-[**RD Tabs**](http://www.avianwaves.com/tech/tools/rdtabs.aspx)** - Remote desktop (RDP) app with bookmarks and tabs!
+[**RD Tabs**](http://www.avianwaves.com/tech/tools/rdtabs.aspx) - Remote desktop (RDP) app with bookmarks and tabs!
 
 
 
@@ -151,7 +151,7 @@ Well, I'm no exception here. I choose software to my needs with **extreme** caut
 
 
 
-[**Add Existing Projects**](https://marketplace.visualstudio.com/items?itemName=RichardJMoss.AddExistingProjects)** - If you have many projects to add to solution this tool will make it easy. Few clicks and its done!
+[**Add Existing Projects**](https://marketplace.visualstudio.com/items?itemName=RichardJMoss.AddExistingProjects) - If you have many projects to add to solution this tool will make it easy. Few clicks and its done!
 
 
 
