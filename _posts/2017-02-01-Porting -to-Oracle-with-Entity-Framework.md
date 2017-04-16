@@ -458,6 +458,10 @@ I'm no Oracle expert, so if you want gain more knowledge about those, check out 
 
 `/` and `;` [When do I need to use a semicolon vs a slash in Oracle SQL?](http://stackoverflow.com/questions/1079949/when-do-i-need-to-use-a-semicolon-vs-a-slash-in-oracle-sql)
 
+`commit;` commits changes on database. **You have to put this after every inserting section in your script.**
+
+
+
 ## SID vs SERVICE_NAME 
 
 [How SID is different from Service name in Oracle tnsnames.ora](http://stackoverflow.com/questions/43866/how-sid-is-different-from-service-name-in-oracle-tnsnames-ora)
@@ -520,7 +524,36 @@ More here:
 
 
 
-## Drop all tables in schema
+## Create table if does not exist 
+
+The easiest way is to handle it with try/catch section.
+
+```sql
+
+begin
+  execute immediate
+  '
+    create table "SCHEMA"."__MigrationHistory"
+    (
+      "MigrationId" nvarchar2(150) not null,
+      "ContextKey" nvarchar2(300) not null,
+      "Model" blob not null,
+      "ProductVersion" nvarchar2(32) not null,
+      constraint "PK___MigrationHistory" primary key("MigrationId", "ContextKey")
+    )
+  ';
+exception
+  when others then
+    if sqlcode <> -955 then
+      raise;
+    end if;
+end;
+/
+```
+
+source: http://stackoverflow.com/questions/15630771/check-table-exist-or-not-before-create-it-in-oracle
+
+## Drop all tables in schema 
 
 ```sql
 BEGIN
@@ -566,6 +599,14 @@ END;
 ```
 
 source: http://stackoverflow.com/a/1690419/864968
+
+
+
+## Inserting IDs to Identity columns
+
+Sometime you have to insert row with specific ID. If your ID column is was defined with `generated always as identity not null` you will get the following exception: `ORA-32795: cannot insert into a generated always identity column`. This is the default way of generting scripts by EF btw.
+
+You can replace this definition with `genereted by default as identity on null`. After doing this, you will be able to insert values to ID columns and nulls will be replaced with generated values.
 
 
 
