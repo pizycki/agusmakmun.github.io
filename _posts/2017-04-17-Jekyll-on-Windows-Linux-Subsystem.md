@@ -13,16 +13,16 @@ You still can still use Jekyll on Windows. [But since Jekyll is a lot more popul
 
 What can be done in this situation? 
 
-##~~Choose other theme~~
+## Choose other theme
 No! I've spent many hours looking for theme nice and simple, yet practical (tags, search function). This theme fits most of my needs. Change is not an option.
-##Create linux VM and work there
+## Create linux VM and work there
 This is how I worked with my blog for a quite while. At any time I could spin up my VM and start writing. That was quite comfortable. **But I like keep my software updated.** Every time restored my VM there were updates available: Ubuntu updates, VS Code updates, VS Code plugins updates, Typora updates, and so on and so on.
 
 Another thing are high requirements to run VM. You need RAM and fast disk. 
 
 Copying VM instances to your all workstations is not the best idea too.
 
-##Docker with Toolbox
+## Docker with Toolbox
 You can install [Docker Toolbox](https://www.docker.com/products/docker-toolbox) which allows you to run Docker containers with Linux-based images. Unfortunately to enable Docker Toolbox you have to turn on HyperV support. If you don't own Windows in Pro edition or you prefer using other VM software, like VMware (me) or VirtualBox, you won't be happy with that restriction.
 
 In case you were instersted in running Jekyll in conatiner, here is one I used for my blog.
@@ -59,7 +59,7 @@ CMD bundle exec jekyll serve
 
 
 
-##Windows Linux Subsystem (WSL) a.k.a. Bash on Ubuntu on Windows
+## Windows Linux Subsystem (WSL) a.k.a. Bash on Ubuntu on Windows
 
 [WSL](https://msdn.microsoft.com/en-us/commandline/wsl/about) is new feature introduced in [Windows 10 Anniversary Update](http://www.windowscentral.com/how-get-windows-10-anniversary-update). In short, it's Ubuntu working on Windows kernel. It doesn't require HyperV (yupi!) and doesn't affect your PC performance. The only requirements are Win 10 with AE udpate and 64 bit OS.
 
@@ -130,7 +130,7 @@ For Hanselman [it worked](https://www.hanselman.com/blog/RubyOnRailsOnAzureAppSe
 
 Unfortunately the whole installation process is not fully automatic, we still need to perform some input during it (mainly providing root password).
 
-### Using
+### Develop
 
 The script will start micro web server which will listen for requests on `http://localhost:4000`. Unlike with Windows Containers, there are no localhost binding issues. **You won't even feel that you run your server on Ubuntu.**
 
