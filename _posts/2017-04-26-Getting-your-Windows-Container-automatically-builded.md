@@ -217,66 +217,108 @@ It was possible to host your own Continous Integration on [Visual Studio Team Se
 
 A month ago, [AppVeyor](https://www.appveyor.com), the true hero of OpenSource and CI/CD of .NET, finally released Virtual Machine Images with pre-installed Visual Studio 2017 and Windows Containers (HyperV). **This was it.**
 
-I've created build script basing on the script that I used to build my images manually. All I had to do was moving all variables to environment. I did some refactor too, but it's nothing special.
+I've created build script basing on the script that I used to build my images manually, but it went out pretty mess, so I refactored it and split it into seperate files.
 
-There is the script
-
+The `Build-Image.ps1` is called in "Build" phase. It builds Dockerfile and tags it with Git tag and as `latest`.
 ```powershell
-# Build-AppVeyor.ps1
+# Build-Image.ps1
 
-################################################
-# Imports
-################################################
+Import-Module .\Common-Module.psm1 3>$null
+Import-Module .\Docker-Module.psm1 3>$null
 
-Import-Module .\Common.psm1
-Import-Module .\Docker.psm1
+Write-Frame "Building Dockerfile" Magenta
 
+[string]  $repository = Get-EnvVariable "DOCKER_REPOSITORY"
+[boolean] $tagged     = [System.Convert]::ToBoolean((Get-EnvVariable "APPVEYOR_REPO_TAG"))
+[string]  $tag        = Get-EnvVariable "APPVEYOR_REPO_TAG_NAME"
+[boolean] $latest     = [System.Convert]::ToBoolean((Get-EnvVariable "IS_LATEST"))
 
-################################################
-# Variables
-################################################
-
-[string]  $repository         = Get-EnvVariable "DOCKER_REPOSITORY"
-[string]  $dockerHubUser      = Get-EnvVariable "DOCKERHUB_USER"
-[string]  $dockerHubPassword  = Get-EnvVariable "DOCKERHUB_PASSWORD"
-[string]  $branch             = Get-EnvVariable "APPVEYOR_REPO_BRANCH"
-[string]  $tag                = Get-EnvVariable "APPVEYOR_REPO_TAG_NAME"
-[boolean] $latest             = [System.Convert]::ToBoolean((Get-EnvVariable "IS_LATEST"))
-[boolean] $tagged             = [System.Convert]::ToBoolean((Get-EnvVariable "APPVEYOR_REPO_TAG"))
-[boolean] $pushToDockerHub    = [System.Convert]::ToBoolean((Get-EnvVariable "PUSH_TO_DOCKERHUB"))
-
-
-################################################
-# Build
-################################################
-
-# Check if commit is tagged, if no, break the build.
-# Set on AppVeyor flag: Build tags only.
+Write-Host "Check if commit is tagged, if no, break the build."
+# Set in AppVeyor flag: Build tags only.
 Get-EnvVariable "APPVEYOR_REPO_TAG"
 
-# Continue with build ...
+Write-Host -ForegroundColor Green "All looks good! Continue with build."
 
-# Build image from Dockerfile
+Write-Host "Build image from Dockerfile."
 Create-Image $repository $tag
 
 # Set image as 'latest' according to build settings.
 if ( $latest ) {
     Tag-AsLatest $repository $tag
 }
+```
 
+`Test-Container` script tests running container of just builded image. If any test failure brokes the build.
+```powershell
+# Test-Container.ps1
 
-################################################
-# Publish
-################################################
+Import-Module .\Common-Module.psm1   3>$null
+Import-Module .\Security-Module.psm1 3>$null
 
-# Publish on DockerHub, according to build settings.
+Write-Frame "Testing: This script will perform bunch of simple scripts making sure that RavenDB can be run and is accessible." Magenta
+
+[string] $repository = Get-EnvVariable "DOCKER_REPOSITORY"
+[string] $tag        = Get-EnvVariable "APPVEYOR_REPO_TAG_NAME"
+[string] $name       = "testo"
+[int]    $bindPort   = 8080
+
+Write-Host "Enabling port ${bindPort}. Is that ok?"
+netsh advfirewall firewall add rule name="Open Port 8080" dir=in action=allow protocol=TCP localport=${bindPort}
+
+Write-Host "Disabling some Windows security features (for testing)."
+Disable-UserAccessControl
+Disable-InternetExplorerESC
+Write-Host "Running '${name}' container."
+Write-Host "Container ID will be written below."
+docker run -d --name $name -p ${bindPort}:8080 ${repository}:${tag}
+
+Write-Host "Making sure container has started. Docker FAQ says its usualy 10 secs so let's assume that."
+Start-Sleep -Seconds 10
+Write-Host "Done waiting, proceeding to tests."
+
+Write-Host "Checking container is up."
+if ( (docker ps | sls $name).Length -eq 0 ) { Exit-WithError "Test FAILED: No running container with name '${$name}'." }
+Write-Success "Container is up and running!"
+
+$ip = docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' $name
+$uri = "http://${ip}:${bindPort}/"
+Write-Host "RavenStudio should be hosted on ${uri}"
+Write-Host "Sending request to RavenStudio..."
+$response = Invoke-WebRequest -Uri $uri
+if ( $LastExitCode -ne 0 ) { Exit-WithError "Error while requesting Raven Studio." }    
+if ( $response.StatusCode -ne 200 ) { Exit-WithError "Test FAILED: Got non-200 HTTP code." }
+Write-Success "Connected to Raven Studio!"
+
+Write-Success "All tests passed." -frame
+```
+
+With `Publish-Image` script we log in to Docker session and push builded images.
+```powershell
+# Publish-Image.ps1
+
+Import-Module .\Common-Module.psm1 3>$null
+Import-Module .\Docker-Module.psm1 3>$null
+
+[boolean] $pushToDockerHub   = [System.Convert]::ToBoolean((Get-EnvVariable "PUSH_TO_DOCKERHUB"))
+[string]  $repository        = Get-EnvVariable "DOCKER_REPOSITORY"
+[string]  $tag               = Get-EnvVariable "APPVEYOR_REPO_TAG_NAME"
+[boolean] $latest            = [System.Convert]::ToBoolean((Get-EnvVariable "IS_LATEST"))
+[string]  $dockerHubUser     = Get-EnvVariable "DOCKERHUB_USER"
+[string]  $dockerHubPassword = Get-EnvVariable "DOCKERHUB_PASSWORD"
+
 if ( $pushToDockerHub ) {
 
-    # Publish tagged image to DockerHub
-    Push-ImageToDockerHub $repository $tag $dockerHubUser $dockerHubPassword
+    Write-Frame "Publishing image to DockerHub" Magenta
 
+    Write-Host "Publishing '${repository}:${tag}'." 
+    Push-ImageToDockerHub $repository $tag $dockerHubUser $dockerHubPassword
+    Write-Success "Image '${repository}:${tag}' has been published!"
+
+    Write-Host "Is latest? ${latest}"
     if ( $latest ) {
+        Write-Host "Publishing '${repository}:${tag}' as 'latest'" 
         Push-ImageToDockerHub $repository "latest" $dockerHubUser $dockerHubPassword
+        Write-Success "Image '${repository}:latest' has been pushed to DockerHub!"
     }
 
     # Removes temporary file that holds user credentials
@@ -285,9 +327,9 @@ if ( $pushToDockerHub ) {
 }
 ```
 
+The powershell modules are for better readability.
 ```powershell
-# Docker.psm1
-
+# Docker-Module.psm1
 function Create-Image( [string] $repository, [string] $tag ) {
     
     write "Building image."
@@ -327,7 +369,7 @@ function Push-ImageToDockerHub(
     }
 }
 
-function Tag-AsLatest( [string]$repository ){
+function Tag-AsLatest( [string]$repository, [string] $tag ){
     write "Tagging image [ ${repository}:${tag} ] as latest..."
     docker tag ${repository}:${tag} ${repository}:latest
     if ( $LastExitCode -ne 0 ) { Exit-WithError "Error during tagging image as 'latest'." }
@@ -336,8 +378,7 @@ function Tag-AsLatest( [string]$repository ){
 ```
 
 ```powershell
-# Common.psm1
-
+# Common-Module.psm1
 function Exit-WithError( $message ){
     $errorExitCode = 1
     Write-Error $message
@@ -352,9 +393,23 @@ function Get-EnvVariable( $name ){
     }
     return $value
 }
+
+function Write-Frame( [string] $message, [string] $foregroundColor = "White" ) {
+    Write-Host -ForegroundColor $foregroundColor "***********************************"
+    Write-Host -ForegroundColor $foregroundColor $message
+    Write-Host -ForegroundColor $foregroundColor "***********************************"
+}
+
+function Write-Success( [string] $message, [switch] $frame ) {    
+    if ( $frame ) {
+        Write-Frame $message green
+    } else {
+        Write-Host -ForegroundColor Green $message
+    }
+}
 ```
 
-Those three files are located in root of my Git project.
+Those  files are located in root of my Git project.
 
 > If you have questions about the scripts, please leave a comment or tweet me!
 
@@ -366,24 +421,23 @@ skip_non_tags: true
 image: Visual Studio 2017
 clone_depth: 1
 init:
-- ps: 
+- cmd: docker info & docker ps
 environment:
   DOCKER_REPOSITORY: pizycki/ravendb
   DOCKERHUB_USER: pizycki
-  DOCKERHUB_PASSWORD: <your DockerHub password> ***
+  DOCKERHUB_PASSWORD:
+    secure: ygOvGB...w3E=
   IS_LATEST: true
   PUSH_TO_DOCKERHUB: true
-install:
-- cmd: docker info & docker ps
 build_script:
-- ps: '& .\Build-AppVeyor.ps1'
+- ps: '& .\Build-Image.ps1'
+test_script:
+- ps: '& .\Test-Container.ps1'
+deploy_script:
+- ps: '& .\Publish-Image.ps1'
 ```
 
 Builds are triggered only on tagged commits. The Git tag is retrieved and used to tag Docker image. If flag `IS_LATEST` is up, the image tagged as latest is also published to DockerHub.
-
-> Don't be stupid and avoid putting your password in any file in plaintext.
-
-// TODO Add testing
 
 
 
@@ -427,3 +481,10 @@ And I can finally put this super-cool badge in `Readme` file.
 Yes, that was the main reason to do the whole thing.
 
 Yay.
+
+# Update:
+Not so long after publish of this post, [RavenDB officialy started publish their own Docker images](https://ayende.com/blog/178049/ravendb-4-0-on-docker). Fortunetly, I can still publish images for RavenDB 3.5 as the Raven Team is focusing on RavenDB 4.0 and are not interested in supporting currently stable release.
+
+
+
+As long as RavenDB 3.5 releases will be issued, I will continue publishing their Docker images.
