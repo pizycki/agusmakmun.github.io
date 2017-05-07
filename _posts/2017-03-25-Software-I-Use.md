@@ -130,8 +130,11 @@ Well, I'm no exception here. I choose software to my needs with **extreme** caut
 
 
 
-
 [**Auto Hotkey**](https://autohotkey.com) - The automation scripting language for Windows. Write your macros and launch them with keyboard shortcuts!
+
+
+
+[**Scanner**](http://steffengerlach.de/freeware/scn2.zip) - Small program that scan your disk partitions and draw radial chart of directory/file size share. Great for looking heavy and unwanted trash on your disk.
 
 
 
