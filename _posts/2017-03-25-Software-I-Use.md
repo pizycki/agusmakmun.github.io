@@ -37,7 +37,7 @@ Well, I'm no exception here. I choose software to my needs with **extreme** caut
 
 
 
-[**Foxit** Reader](https://www.foxitsoftware.com/products/pdf-reader/) - PDF reader, alternative for [Adobe Reader](https://get.adobe.com/pl/reader/).
+[**Foxit Reader**](https://www.foxitsoftware.com/products/pdf-reader/) - PDF reader, alternative for [Adobe Reader](https://get.adobe.com/pl/reader/).
 
 
 
@@ -114,7 +114,7 @@ Well, I'm no exception here. I choose software to my needs with **extreme** caut
 
 
 
-[**VMware Workstation Player**](http://www.vmware.com/products/player/playerpro-evaluation.html) and [**VirtualBox**](https://www.virtualbox.org) - Free virtual machine managers.
+[**VMware Workstation Player**](http://www.vmware.com/products/player/playerpro-evaluation.html) and [**VirtualBox**](https://www.virtualbox.org) - Free virtual machine managers. I have to still convince myself to using Hyper-V.
 
 
 
@@ -150,7 +150,11 @@ Well, I'm no exception here. I choose software to my needs with **extreme** caut
 
 
 
-[**ReAttach**](https://marketplace.visualstudio.com/items?itemName=ErlandR.ReAttach) - Allows for quick attachinh to process (i.e. `w3wp.exe`).
+[**Productivity Tools**](https://github.com/Microsoft/VS-PPT) - Tabs coloring and positioning, smaller `{ }` braces, indention lines, and on-save actions. VS-PPT are now open source!
+
+
+
+[**ReAttach**](https://marketplace.visualstudio.com/items?itemName=ErlandR.ReAttach) - Allows for quick attaching to process (i.e. `w3wp.exe`). The button will appear next to ▶ button in VS.
 
 
 
@@ -166,8 +170,11 @@ Well, I'm no exception here. I choose software to my needs with **extreme** caut
 
 
 
-
 [**Cake For Visual Studio**](http://cakebuild.net/blog/2016/09/cake-for-visual-studio) - Adds Cake tasks runner to your VS and Cake files support to your VS.
+
+
+
+[**Read-Only Switch**](https://marketplace.visualstudio.com/items?itemName=ShemeerNS.Read-OnlySwitch) - Helpful when working with files of different team and you don't want to change any file but yours. You can lock/unlock single file with RMB-click on file tab.
 
 
 
