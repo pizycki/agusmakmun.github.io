@@ -180,30 +180,26 @@ Whole HTTP API can be done with Azure Functions. Yet, I still need some client w
 
 - [Unit Testing Azure Functions and .csx Files](https://stackoverflow.com/questions/42513577/unit-testing-azure-functions-and-csx-files)
 
-- https://blogs.msdn.microsoft.com/webdev/2016/12/01/visual-studio-tools-for-azure-functions/
+- [VS tools for Azure Functions](https://blogs.msdn.microsoft.com/webdev/2016/12/01/visual-studio-tools-for-azure-functions/)
 
-- https://serverless.com/blog/serverless-architecture-code-patterns/
+- [https://serverless.com/blog/serverless-architecture-code-patterns/](Serverless patterns)
 
-- https://www.slideshare.net/satonaoki/serverless-patterns-with-azure-functions
+- [Testing with Postman](https://www.getpostman.com/docs/postman/scripts/test_scripts)
 
-- https://www.getpostman.com/docs/postman/scripts/test_scripts
+- [Postman request collections](https://www.getpostman.com/docs/postman/collections/creating_collections)
 
-- https://www.getpostman.com/docs/postman/collections/creating_collections
+- [Automated testing in Postman](http://blog.getpostman.com/2014/03/07/writing-automated-tests-for-apis-using-postman/)
 
-- http://blog.getpostman.com/2014/03/07/writing-automated-tests-for-apis-using-postman/
+- [Serverless patterns](https://github.com/yochay/serverlesspatterns)
 
-- https://github.com/yochay/serverlesspatterns
+- [Call other functions inside azure functions](http://devslice.net/2016/09/azure-functions-call-functions/)
 
-- http://devslice.net/2016/09/azure-functions-call-functions/
+- [Reusing code in Azure Functions](http://devslice.net/2016/08/azure-functions-reusing-code/)
 
-- http://devslice.net/2016/08/azure-functions-reusing-code/
+- [Strategies for testing your code in Azure Functions](https://docs.microsoft.com/en-us/azure/azure-functions/functions-test-a-function)
 
-- https://docs.microsoft.com/en-us/azure/azure-functions/functions-test-a-function
+- [Running Azure Functions Locally with the CLI and VS Code](https://blogs.msdn.microsoft.com/appserviceteam/2016/12/01/running-azure-functions-locally-with-the-cli/)
 
-- https://blogs.msdn.microsoft.com/appserviceteam/2016/12/01/running-azure-functions-locally-with-the-cli/
+- [Azure/azure-functions-cli](https://github.com/Azure/azure-functions-cli)
 
-- https://github.com/Azure/azure-functions-cli
-
-- https://docs.microsoft.com/en-us/azure/azure-functions/functions-run-local
-
-
+- [Code and test Azure functions locally](https://docs.microsoft.com/en-us/azure/azure-functions/functions-run-local)
