@@ -182,7 +182,7 @@ Whole HTTP API can be done with Azure Functions. Yet, I still need some client w
 
 - [VS tools for Azure Functions](https://blogs.msdn.microsoft.com/webdev/2016/12/01/visual-studio-tools-for-azure-functions/)
 
-- [https://serverless.com/blog/serverless-architecture-code-patterns/](Serverless patterns)
+- [Serverless patterns](https://serverless.com/blog/serverless-architecture-code-patterns)
 
 - [Testing with Postman](https://www.getpostman.com/docs/postman/scripts/test_scripts)
 
