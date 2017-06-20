@@ -610,6 +610,48 @@ You can replace this definition with `genereted by default as identity on null`.
 
 
 
+## Making backup
+
+It will work for 12c. Not sure will for 11g.
+
+Firstly, create directory where your backups will be stored.
+
+Open **sqldeveloper** and run query (as `sys`) to see if `DATA_PUMP_DIR` already exists.
+
+```sql
+select * from dba_directories;
+```
+
+if not, create one
+
+```plsql
+create directory my_data_pump_dir as 'C:\dev\oracle_data_pump';
+grant read, write on directory my_data_pump_dir to sys;
+```
+
+Open `cmd` (not `powershell`!) and login to `expdp` as oracle `sys` user. `orcl` is my TNS.
+
+```
+expdp \"SYS@oracle AS SYSDBA\" ^
+DIRECTORY=my_data_pump_dir ^
+REUSE_DUMPFILES=y ^
+LOGFILE=my_data_pump_dir:expsh.log ^
+DUMPFILE='identityserver%U.dmp' ^
+SCHEMAS=identityserver
+```
+
+
+
+
+
+https://stackoverflow.com/a/9259221/864968
+
+http://oracleinaction.com/ora-39070-unable-to-open-the-log-file/
+
+https://serverfault.com/a/368041/364838
+
+https://stackoverflow.com/a/605724/864968
+
 ## Types mapping
 
 Sometime we need to configure column types explicitly.
