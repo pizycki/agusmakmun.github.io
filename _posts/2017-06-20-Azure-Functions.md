@@ -176,6 +176,12 @@ So, that's how we can keep our Azure Functions covered with tests.
 
 Whole HTTP API can be done with Azure Functions. Yet, I still need some client which will help user calling it. In my current work I have to deal with Angular 1.4x. I've once touched Aurelia for one student project and it was quite cool. So how about merging those two? Component approach and Angular popularity? I've choosed Angular 2. But this is topic for another blog post. Probably pt. 2.
 
+## OpenAPI
+
+Looks like I've missed something in my research. I just found an [OpenAPI](https://docs.microsoft.com/en-us/azure/azure-functions/functions-api-definition-getting-started) available for  Azure Functions. It's currently in preview for Azure Functions, but even now it looks promising.
+
+I'll try use it in my EdmxConverter.
+
 ---
 
 - [Unit Testing Azure Functions and .csx Files](https://stackoverflow.com/questions/42513577/unit-testing-azure-functions-and-csx-files)
