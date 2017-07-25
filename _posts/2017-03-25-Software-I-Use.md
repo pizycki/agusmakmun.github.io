@@ -25,11 +25,15 @@ Well, I'm no exception here. I choose software to my needs with **extreme** caut
 
 
 
+[**ScreenToGif**](http://www.screentogif.com/) - Easy and light tool for capturing screen/camera and saving movie as gif animation.
+
+
+
 [**7-Zip**](http://www.7-zip.org) - File archiver, alternative for ex. [WinRAR](http://www.win-rar.com/).
 
 
 
-[**Sublime** Text 3](https://www.sublimetext.com/3) - Text editor that I use every day as a clipboard or draft workspace. For real development I prefer using [VS Code](https://code.visualstudio.com).
+[**Sublime Text 3**](https://www.sublimetext.com/3) - Text editor that I use every day as a clipboard or draft workspace. For real development I prefer using [VS Code](https://code.visualstudio.com).
 
 
 
@@ -144,7 +148,7 @@ Well, I'm no exception here. I choose software to my needs with **extreme** caut
 
 
 
-### Plugins
+### VS Plugins
 
 [**Resharper**](https://www.jetbrains.com/resharper/) - Okay, Visual Studio is cool, but only if you have **R#**. Refactor options, code inspection, continuous unit testing. Without those my productivity would drop down to about zero. Unfortunately, work on big solutions might be painful with R#.
 
@@ -175,6 +179,10 @@ Well, I'm no exception here. I choose software to my needs with **extreme** caut
 
 
 [**Read-Only Switch**](https://marketplace.visualstudio.com/items?itemName=ShemeerNS.Read-OnlySwitch) - Helpful when working with files of different team and you don't want to change any file but yours. You can lock/unlock single file with RMB-click on file tab.
+
+
+
+[**File Nesting**](https://marketplace.visualstudio.com/items?itemName=MadsKristensen.FileNesting) - Sometimes you want nest a specific file beneath C# class file (`.cs`). This happen i.e. when you badly merge your `*.csproj` file and EF migration files will be missing. This tool enables you to fix that issue.
 
 
 
