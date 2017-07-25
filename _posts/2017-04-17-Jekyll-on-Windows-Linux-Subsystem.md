@@ -121,7 +121,7 @@ cd ~/dev/izzydev
 
 # Build and run
 bundle install
-bundle exec jekyll serve --no-watch
+bundle exec jekyll serve
 ```
 
 To run Jekyll we need ruby at least at version 2.0. [You can install it on different ways](https://gorails.com/setup/windows/10), but this one worked for me without any bigger issues. Just add 'apt' repository and install `ruby2.3`. Installing [rvm](https://rvm.io), [rbenv](https://github.com/rbenv/rbenv) or even compiling from source, always ended with some missing library.
@@ -170,3 +170,7 @@ Okay, we have setup WSL with our blog. Was that worth all that time we have spen
 WSL has huge potential. It's a bridge from Windows to Linux without VMs. You might disagree with me, but I think there is something in unix based OSes that makes them great, something that Windows lacks. Installing Bash on Windows allow getting familiar with Linux ecosystem without leaving Windows aside. It might become very interesting start point for learning NET Core. I think the time has finally come.
 
 And, I think the most important, we have learned something new. You never know when it comes helpful and how it will affect your work.
+
+
+
+**Edit:** Jekyll watch is working on WSL now!
