@@ -1,0 +1,55 @@
+---
+layout: post
+title:  "Porting to .NET Core"
+date:  2017-08-25
+categories: [NetCore, C#]
+---
+
+One of my pet-projects, which I don't want yet to present, heavly bases on C#7.1. Therefore I'm obliged to use Visual Studio 17.
+
+The VS17, by default, creates projects with C# 6. I'm not sure why it does this way, since C# 7.1 is no more in Preview, but nevermind.
+
+To enable C#7  (and 7.1) features, we have to install [Microsoft.Net.Compilers](https://www.nuget.org/packages/Microsoft.Net.Compilers/) on every project. Also, make sure you have .NET 4.6.2 installed. Otherwise, you're gonna need to [install some other things](https://stackoverflow.com/a/42675652/864968).
+
+In all projects in which you use C#7 syntax, go to `csproj` properties, advanced build settings and select proper language version (7.1, right?). Just do as they say [here](https://stackoverflow.com/questions/31868803/error-invalid-option-6-for-langversion-must-be-iso-1-iso-2-3-4-5-or-defa).
+
+Also make sure you have correct compiler in your `web/app.config` file.
+
+```xml
+<compilers>
+  <compiler language="c#;cs;csharp" extension=".cs" type="Microsoft.CodeDom.Providers.DotNetCompilerPlatform.CSharpCodeProvider, Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" warningLevel="4" compilerOptions="/langversion:7 /nowarn:1659;1699;1701" />
+</compilers>
+
+```
+
+---
+
+In ideal world, this would do the trick.
+
+But that's not mine world.
+
+```
+Error	CS1617	Invalid option '7.1' for /langversion; must be ISO-1, ISO-2, Default or an integer in range 1 to 6.
+```
+
+
+
+Well, VS17 let me down this time. So I started wondering maybe *I could try using OmniSharp in VS Code?* 
+
+There is one more thing. Next project I will be working on at work will be in .NET Core. It would be nice to get a little familiar with this framework BEFORE getting for real work.
+
+Recently, .NET Core 2.0 has been released and rumours say that it's quite stable. Fear against edgy piece of technology slowly fades away with every release. Time to hop on .NET Core hype train!
+
+To see if my projects will smothly work on .NET Core I use [this website](https://icanhasdot.net/result). By uploading my nuget `.package` files I can say which libraries won't work, which I can replace with .NET Core versions and which I have to resign from.
+
+This is my result
+
+![Result of uploading 4 nuget package configs]({{site.url}}/static/img/posts/Porting-To-NetCore/i-can-has-dotnetcore.png)
+
+The yellow labels worry us. The rest is good. Yellow means *"sorry bro, you gotta let it go, there is .NET Core version for that"*. 
+
+`ApprovalTests` is a great library for comparing binaries in automated tests. But, to be honest, I can live without it. `System.Reactive.Windows.Threading`, `Microsoft.CodeDom.Providers.DotNetCompilerPlatform` and `CsQuery` is probably not necessary too. There are other Nancy lis for .NET Core and `LanguageExt` is obsolete anyway.
+
+So, we're good to go.
+
+Time for change.
