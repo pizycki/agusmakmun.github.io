@@ -144,7 +144,7 @@ var cool = isCool(1) & !isCool(0) & isCool("true") & !isCool("false") & !isCool(
 
 After getting this into REPL memory and calling `cool`, we get result of above statement.
 
-![]({{site.url}}/Refactoring-extension-method/static/img/posts/repl.gif)
+![]({{site.url}}/static/img/posts/Refactoring-extension-method/repl.gif)
 
 Another way is to write a unit test. In xUnit2, we can do it like this, by providing all inputs that we're interested in.
 
