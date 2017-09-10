@@ -69,8 +69,8 @@ containerBuilder.RegisterType<MssqlTenantDatabaseCreator>().AsSelf();
 containerBuilder.RegisterType<OracleTenantDatabaseCreator>().AsSelf();
 
 containerBuilder.Register<Func<DatabaseType, ITenantDatabaseCreator>>(
-	c => { // c: ComponentContext, generaly use this as builded container
-      switch(databaseType) {
+	c => type => { // c: ComponentContext, generaly use this as builded container
+      switch(type) {
           
         case DatabaseType.Mssql:
           return c.Resolve<MssqlTenantDatabaseCreator>();
@@ -107,6 +107,33 @@ You may ask _"What's wrong about it?"_
 Resolving implementation is easy, but registering... not so much. Imagine service with hundreds of implementations. Do you really would like to generate such incredibly huge `switch` inside `Func`? Me neither.
 
 (I know, R# can generate this switch for us, but someone has to maintain it later ;) )
+
+**Update:**
+
+Maybe something has changed, maybe I simply made a mistake writing this post, but I couldn't get on with solution shown above.
+
+Below I present the sample which looks very similiar and varies only in registration details.
+
+It feels like it's a in the middle between delegate factory and `IIndex`.
+
+```csharp
+// Based on this answer https://stackoverflow.com/a/15427548/864968
+
+containerBuilder.RegisterType<MssqlTenantDatabaseCreator>()
+                .Keyed<ITenantDatabaseCreator>(DatabaseType.Mssql);
+containerBuilder.RegisterType<OracleTenantDatabaseCreator>()
+                .Keyed<ITenantDatabaseCreator>(DatabaseType.Oracle);
+// Don't forget about lifetime scopes !
+
+containerBuilder.Register<Func<DatabaseType, ITenantDatabaseCreator>>(
+	c => {
+      var ctx = c.Resolve<IComponentContext>();
+      return type => ctx.ResolveKeyed<ITenantDatabaseCreator>(type);
+	}); 
+```
+
+And now it doesn't look that bad.
+
 
 
 
