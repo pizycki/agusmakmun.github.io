@@ -116,7 +116,7 @@ public static bool ToBoolExtended(this object obj) {
 
 This looks way better the initial version. Less code, less branches and well formatted. Neat.
 
-##Testing
+## Testing
 
 This code is quite easy to test. Actualy, we can do it by writing one-liner.
 
