@@ -35,3 +35,5 @@ class Program
   }
 }
 ```
+
+**Note:** Don't dispose `EmbeddableDocumentStore` instance. The most common pattern is to use it as Singleton.
