@@ -5,6 +5,8 @@ date:   2018-01-25
 categories: [ravendb]
 ---
 
+RavenDB is document based database with **transactions (!)** and indexing features (there is more, but those stands out) that can be hosted in many ways: as service, in Docker container (see my project [RavenCage](https://github.com/pizycki/RavenCage-3.5/)) or in embedded mode.
+
 Here I'll describe how you can quickly setup RavenDB as embedded instance (no installation required, can also work in memory).
 
 ## Let's go
