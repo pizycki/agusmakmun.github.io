@@ -1,4 +1,10 @@
-RavenDB Embedded
+---
+layout: post
+title:  "RavenDB Embedded"
+date:   2018-01-25
+categories: [ravendb]
+---
+
 
 ```csharp
 class Program
