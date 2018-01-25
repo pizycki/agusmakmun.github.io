@@ -5,7 +5,21 @@ date:   2018-01-25
 categories: [ravendb]
 ---
 
+Here I'll describe how you can quickly setup RavenDB as embedded instance (no installation required, can also work in memory).
 
+## Let's go
+
+1. Create new console/web app (I choosed console)
+
+2. Install RavenDB at version **< 4.0**. (Not sure if 4.0 has embedded mode at all.)
+
+```powershell
+Install-Package RavenDB.Embedded -Version 3.5.5
+```
+
+3. Make sure `Raven.Studio.Html5.zip` is in project and marked as `Content` with `Copy` option selected. 
+
+4. Copy/Paste configuration
 ```csharp
 class Program
 {
@@ -43,3 +57,11 @@ class Program
 ```
 
 **Note:** Don't dispose `EmbeddableDocumentStore` instance. The most common pattern is to use it as Singleton.
+
+5. Run your app, but remember to do that with Administrator privileges.
+
+## That's it !
+
+This quick bootstrap let's you setup any persistance to your app in no time! 
+
+But remember, for more serious things (like new Facebook and such), you should go for service hosted RavenDB or even consider changig it for another, more modern technology. Say [Maven](https://maven.apache.org/).
