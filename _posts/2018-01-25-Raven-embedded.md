@@ -22,6 +22,7 @@ Install-Package RavenDB.Embedded -Version 3.5.5
 3. Make sure `Raven.Studio.Html5.zip` is in project and marked as `Content` with `Copy` option selected. 
 
 4. Copy/Paste configuration
+
 ```csharp
 class Program
 {
