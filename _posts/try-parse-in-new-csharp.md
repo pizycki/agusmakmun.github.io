@@ -1,3 +1,10 @@
+---
+layout: post
+title:  "TryParse with new C#"
+date:   2018-02-07
+categories: [.NET, refactor]
+---
+
 Let's quickly refactor this piece of code to more modern form.
 
 ```csharp
@@ -14,7 +21,7 @@ private int? MapAbsenceReason(string reason)
 ```
 This is common `TryParse` method from .NET standard library.
 
-With C#6 and 7 features, some things can simplified.
+With C#6 and 7 features, some things can be simplified.
 
 Here is how we can rewrite this method.
 
@@ -36,4 +43,4 @@ Unfortunetly, the new form is less _traditional_ and those who prefer C-style la
 I see it this way. The second form is just... less common. C#7 has barely been released and its syntax has not been yet adopted by most of the developers.
 
 Even though I use modern C# syntax in my every day work. I just don't see the reason why I should not. The code evolves by its nature, day after day. And if we keep write the same way all the time, we might end up with code that none want to work with.
-Developers like new, shiny things (frameworks, languages etc). Why forbidd using them if they don't impact on performence?
+Developers like new, shiny things (frameworks, languages etc). Why forbidd using them if they don't impact on performence at all?
