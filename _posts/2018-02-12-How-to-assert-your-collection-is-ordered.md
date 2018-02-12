@@ -146,8 +146,8 @@ public class OrderCheckerTests {
 public static class Comparers {
   public static Func<long, long, int> LongsComparer =>
     (a, b) => a > b ? 1
-    : a < b ? -1
-      : 0;
+            : a < b ? -1
+            : 0;
 
   public static Func<long, long, bool> LongsEquals => (a, b) => a == b;
 }
