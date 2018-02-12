@@ -5,7 +5,7 @@ date:   2018-02-12
 categories: [tests, .NET]
 ---
 
-In [PagiNET](), the library which I'm currently working on, there is a lot of code that's supposed to order things in ascending and descending way.
+In [PagiNET](https://github.com/pizycki/PagiNET), the library which I'm currently working on, there is a lot of code that's supposed to order things in ascending and descending way.
 
 There are many assertion libraries, but ~~none of them~~ none in my knowledge can perform a simple test against a collection - check if it's ordered or not. Literally to check that every element in the sequence is in the desired position.
 
