@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "What happens if we don't refactor"
+title:  "What happens when we don't refactor"
 date:   2018-02-15
 categories: [funny]
 ---
