@@ -19,3 +19,5 @@ public string BuildFoobar() {
   string concat() = a + b; // Local function can be a Closure.
 }
 ```
+
+This way we can build function using local variables and pass them further.
