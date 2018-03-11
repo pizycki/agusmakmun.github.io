@@ -21,3 +21,8 @@ public string BuildFoobar() {
 ```
 
 This way we can build function using local variables and pass them further.
+
+## Tail recursion
+Resolves issues with stack overflow in standard recursion.
+
+example tbd
