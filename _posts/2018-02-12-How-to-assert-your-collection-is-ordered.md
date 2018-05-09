@@ -2,7 +2,7 @@
 layout: post
 title:  "How to assert your collection is ordered"
 date:   2018-02-12
-categories: [tests, .NET]
+categories: [.NET]
 ---
 
 In [PagiNET](https://github.com/pizycki/PagiNET), the library which I'm currently working on, there is a lot of code that's supposed to order things in ascending and descending way.
@@ -11,7 +11,7 @@ There are many assertion libraries, but ~~none of them~~ none in my knowledge ca
 
 Obviously, such helper was unavoided. I wrote an implementation using ~~fold~~ `.Aggregate` function in LINQ standard library.
 
-> If you don't know yet the most _sexy_ and the simplest `Aggregate` example, check it out [here](http://izzydev.net/devoweek/2017/12/03/devoweek.html).
+> If you don't know yet the most _sexy_ and the simplest `Aggregate` example, check it out [here](http://izzydev.net/DevoWeek/2017/12/03/DevoWeek.html).
 
 There are two functions:
 

@@ -2,7 +2,7 @@
 layout: post
 title:  "Jekyll on Windows Linux Subsystem"
 date:  2017-04-17
-categories: [Jekyll, WSL]
+categories: [Windows, Jekyll, Linux]
 ---
 
 [This](http://www.izzydev.net) blog is generated with [Jekyll static site generator](https://jekyllrb.com). In comparison to all Wordpress-like blogs, there is no backend logic. No content management. No databases. Whole website is bunch of pregenerated HTML files, so no matter how crappy your hosting is, your site will always run fast.

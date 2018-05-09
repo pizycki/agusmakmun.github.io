@@ -2,7 +2,7 @@
 layout: post
 title:  "Introduction to FP in C#"
 date:  2017-08-24
-categories: [FP, C#]
+categories: [.NET, FP, C#]
 ---
 
 **TL;DR:** Notes taken during read of [louthy](https://github.com/louthy)/[**language-ext**](https://github.com/louthy/language-ext) [wiki](https://github.com/louthy/language-ext/wiki/)

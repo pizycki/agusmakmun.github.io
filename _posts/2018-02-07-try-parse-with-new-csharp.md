@@ -2,7 +2,7 @@
 layout: post
 title:  "TryParse with new C#"
 date:   2018-02-07
-categories: [.NET, refactor]
+categories: [.NET, C#, FP]
 ---
 
 Let's quickly refactor this piece of code to more modern form.
