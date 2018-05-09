@@ -2,7 +2,7 @@
 layout: post
 title:  "Azure Functions"
 date:  2017-06-20
-categories: [EdmxConverter, AzureFunctions, .NET]
+categories: [Azure, EdmxConverter]
 ---
 
 **TL;DR:** Azure Functions is Microsoft implementation of serverless nanoservices. Best way to start using them is to install Visual Studio Code and CLI. For manually executing HTTP requests use Postman, but for longer run use test framework (like xUnit).

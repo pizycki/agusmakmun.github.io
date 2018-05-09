@@ -2,7 +2,7 @@
 layout: post
 title:  "One-To-One Entity Framework with Fluent Configuration"
 date:  2017-07-25
-categories: [EntityFramework, .NET]
+categories: [.NET, EF]
 ---
 
 

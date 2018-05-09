@@ -2,7 +2,7 @@
 layout: post
 title:  "Autofac, API and LifetimeScopes"
 date:   2016-10-06
-categories: [.NET, Autofac]
+categories: [.NET, Autofac, IoC]
 ---
 Once again I came across problem of registering _services_ in Autofac container in API oriented project.
 
