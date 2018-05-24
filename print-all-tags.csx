@@ -1,6 +1,6 @@
 using System.Text.RegularExpressions;
 
-var postsDir = @"C:\dev\pizycki.github.io\_posts";
+var postsDir = @"_posts";
 var posts = Directory.EnumerateFiles(postsDir, "*.md", SearchOption.AllDirectories);
 // print found posts
 //posts.ToList().ForEach(Console.WriteLine);
