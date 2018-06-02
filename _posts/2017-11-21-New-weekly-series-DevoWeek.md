@@ -2,6 +2,7 @@
 layout: post
 title:  "Starting new weekly series - DevoWeek!"
 date:   2017-11-19
+tags: []
 categories: [DevoWeek]
 ---
 
