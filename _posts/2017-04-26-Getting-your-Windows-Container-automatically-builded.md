@@ -2,7 +2,7 @@
 layout: post
 title:  "Getting your Windows Container automatically builded"
 date:  2017-04-26
-categories: [WindowsContainers, Docker, AppVeyor, RavenCage]
+tags: [WindowsContainers, Docker, AppVeyor, RavenCage]
 ---
 
 I have a pet project called [RavenCage](github.com/pizycki/RavenCage). It's main goal is to containerize [RavenDB](https://ravendb.net) on [Docker](https://www.docker.com). Its Docker images are available on [DockerHub](). 

@@ -2,7 +2,7 @@
 layout: post
 title:  "Porting to Oracle with Entity Framework"
 date:   2017-02-01
-categories: [.NET, Oracle, EF]
+tags: [.NET, Oracle, EF]
 ---
 
 ## TL;DR: 

@@ -2,7 +2,7 @@
 layout: post
 title:  "Refactoring extension method"
 date:  2017-09-10
-categories: [C#]
+tags: [C#]
 ---
 
 I was assigned to do a code review on this extension method

@@ -2,7 +2,7 @@
 layout: post
 title:  "Facebook chat in cmd"
 date:   2016-08-03
-categories: [.NET, Edge.js, Facebook]
+tags: [.NET, Edge.js, Facebook]
 ---
 
 Install [NPM package manager](https://www.npmjs.com/)

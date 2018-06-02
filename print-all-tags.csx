@@ -5,7 +5,7 @@ var posts = Directory.EnumerateFiles(postsDir, "*.md", SearchOption.AllDirectori
 // print found posts
 //posts.ToList().ForEach(Console.WriteLine);
 
-var tags = posts.SelectMany(GetTags).Distinct().OrderBy(x=>x).ToList();
+var tags = posts.SelectMany(GetTags).Distinct().OrderBy(x=>x).Where(x=>!string.IsNullOrEmpty(x)).ToList();
 tags.ForEach(Console.WriteLine);
 
 IEnumerable<string> GetTags(string postPath)
@@ -16,10 +16,10 @@ IEnumerable<string> GetTags(string postPath)
 		do
 		{
 			ln = file.ReadLine().Trim();
-		} while(!ln.StartsWith("categories"));
+		} while(!ln.StartsWith("tags"));
 
 		var toRemove = new List<string> {
-			"categories",
+			"tags",
 			@"\:",
 			@"\[",
 			@"\]", 

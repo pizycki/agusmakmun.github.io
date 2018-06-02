@@ -2,7 +2,7 @@
 layout: post
 title:  "RavenDB Embedded Bootstrap"
 date:   2018-01-25
-categories: [.NET, RavenDB]
+tags: [.NET, RavenDB]
 ---
 
 RavenDB is document based database with **transactions (!)** and indexing features (there is more, but those stands out) that can be hosted in many ways: as service, in Docker container (see my project [RavenCage](https://github.com/pizycki/RavenCage-3.5/)) or in embedded mode.
