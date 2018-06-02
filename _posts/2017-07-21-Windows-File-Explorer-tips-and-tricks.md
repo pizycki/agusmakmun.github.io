@@ -2,7 +2,7 @@
 layout: post
 title:  "Windows File Explorer tips & tricks"
 date:  2017-07-21
-categories: [Windows]
+tags: [Windows]
 ---
 
 ### Create New folder with shortcut

@@ -2,7 +2,7 @@
 layout: post
 title:  "How to assert your collection is ordered"
 date:   2018-02-12
-categories: [.NET]
+tags: [.NET]
 ---
 
 In [PagiNET](https://github.com/pizycki/PagiNET), the library which I'm currently working on, there is a lot of code that's supposed to order things in ascending and descending way.

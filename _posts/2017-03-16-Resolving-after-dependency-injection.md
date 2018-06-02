@@ -2,7 +2,7 @@
 layout: post
 title:  "Resolving after dependency injection"
 date:   2017-03-16
-categories: [.NET, Autofac, IoC]
+tags: [.NET, Autofac, IoC]
 ---
 
 Let's say you have service that is responsible for creating new tenant databases. The service uses several strategies for creating database instances of different RDBMS types.

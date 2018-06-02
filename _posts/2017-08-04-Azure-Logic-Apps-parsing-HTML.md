@@ -2,7 +2,7 @@
 layout: post
 title:  "Azure Logic Apps - parsing HTML"
 date:  2017-08-04
-categories: [Azure, LogicApp, RavenCage]
+tags: [Azure, LogicApp, RavenCage]
 ---
 
 In this [post](http://izzydev.net/windowscontainers/docker/appveyor/ravencage/2017/04/26/Getting-your-Windows-Container-automatically-builded.html) I wrote about my pet project called [RavenCage](https://github.com/pizycki/ravencage), a conteinerization of pupular [NoSQL](https://www.google.pl/search?q=nosql) database [RavenDB](http://ravendb.net) in version [3.5](https://ravendb.net/docs/article-page/3.5/csharp/start/whats-new?page=1) for [Windows Containers](https://docs.microsoft.com/en-us/virtualization/windowscontainers). In short, I update [Dockerfile](https://github.com/pizycki/RavenCage-3.5/blob/master/Dockerfile) online on [GitHub](https://github.com/pizycki/RavenCage-3.5), create new [tag](https://help.github.com/articles/working-with-tags/)/[release ](https://help.github.com/articles/creating-releases/) and wait for [AppVeyor](https://ci.appveyor.com/project/pizycki/ravencage-3-5) do a build, test it and publish new images to [DockerHub](https://hub.docker.com/r/pizycki/ravendb/).

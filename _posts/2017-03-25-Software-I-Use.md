@@ -2,7 +2,7 @@
 layout: post
 title:  "Software I use (on Windows)"
 date:  2017-03-25
-categories: [Software, Windows]
+tags: [Software, Windows]
 ---
 
 Every developer has his/her favorite tools. Set of programs, software or plugins that without he's feeling like with two left hands. 

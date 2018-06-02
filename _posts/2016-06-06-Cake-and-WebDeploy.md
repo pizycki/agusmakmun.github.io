@@ -2,7 +2,7 @@
 layout: post
 title:  "Cake and WebDeploy"
 date:   2016-08-03
-categories: [.NET, Cake, WebDeploy]
+tags: [.NET, Cake, WebDeploy]
 ---
 
 [Cake](http://cakebuild.net/) is great open source alternative for building your **.NET** solutions. What is more, it allows to attach ~~your own written~~ downloaded from [nuget](https://www.nuget.org/packages?q=cake)/[GitHub](https://github.com/search?l=C%23&q=cake&type=Repositories&utf8=%E2%9C%93) plugins (a.k.a. [_Addins_](http://cakebuild.net/addins)) which will do the job for you.

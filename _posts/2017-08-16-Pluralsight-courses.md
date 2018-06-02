@@ -2,7 +2,7 @@
 layout: post
 title:  "Pluralsight courses"
 date:  2017-08-16
-categories: [Pluralsight]
+tags: [Pluralsight]
 ---
 
 I watch [Pluralsight](https://www.pluralsight.com/) courses since the very begining of my programming journey. If I remember well, my first I took was ASP.NET MVC 4, which was like a gift as I was about to start work in my very first serious work using this web framework.
