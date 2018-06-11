@@ -37,4 +37,8 @@ The links below are courses which interested me the most and which I recommend f
 
 [**ASP.NET MVC 5 Fundamentals**](https://app.pluralsight.com/library/courses/aspdotnet-mvc5-fundamentals) by [Scott Allen](https://app.pluralsight.com/profile/author/scott-allen)
 
+[**Entity Framework Core 2: Mappings**](https://app.pluralsight.com/library/courses/e-f-core-2-beyond-the-basics-mappings) by [Julie Lerman](https://app.pluralsight.com/profile/author/julie-lerman)
+
+[**Domain-Driven Design in Practice**](https://app.pluralsight.com/library/courses/domain-driven-design-in-practice/table-of-contents) by [Vladimir Khorikov](https://app.pluralsight.com/profile/author/vladimir-khorikov)
+
 This list will be updated from time to time. I'll tweet about it, so if you like to hear about it, make sure you're [observing my twitter](https://twitter.com/pizyck) :)
